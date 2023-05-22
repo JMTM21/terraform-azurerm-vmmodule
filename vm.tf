@@ -19,20 +19,20 @@ resource "azurerm_network_interface" "az-nic" {
 }
 
 #creates VM
-/*resource "azurerm_linux_virtual_machine" "az-vm" {
-  name                            = "vm-demo"
+resource "azurerm_windows_virtual_machine" "az-winvm" {
+  name                            = "winvm-demo"
   resource_group_name             = azurerm_resource_group.az-rsg.name
   location                        = azurerm_resource_group.az-rsg.location
   network_interface_ids           = [azurerm_network_interface.az-nic.id]
-  size                            = "Standard_DS1_v2"
+  size                            = "Standard_F2"
   admin_username                  = var.admin_username
-  disable_password_authentication = false
   admin_password                  = data.azurerm_key_vault_secret.vm-secret.value
+
   #specifies image 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
     version   = "latest"
 
   }
@@ -55,4 +55,4 @@ resource "azurerm_network_interface" "az-nic" {
 
 
 
-}*/
+}
