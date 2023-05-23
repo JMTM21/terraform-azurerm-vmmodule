@@ -1,5 +1,5 @@
 
-#vmconfig
+#vmconfig variable values
 vmname     = "winvm-demo"
 vmlocation = "UK South"
 location   = "UK South"
@@ -8,13 +8,12 @@ adminusern = "admindemo1"
 vmtag      = "module-demo"
 tag        = "module-demo"
 
-#source image
-
+#source image values
 publisher = "MicrosoftWindowsServer"
 offer     = "WindowsServer"
 sku       = "2016-Datacenter"
 vmversion = "latest"
 
-#OS Disk
+#OS Disk values
 caching     = "ReadWrite"
 strgaccount = "Standard_LRS"
