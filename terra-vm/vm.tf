@@ -21,20 +21,21 @@ resource "azurerm_network_interface" "az-nic" {
 
 module "vmmod" {
   source      = "../modules/vm-module"
-  vmname      = var.vmanem
+  vmname      = "winvm-demo"
   rsgname     = azurerm_resource_group.az-rsg.name
-  location    = var.location
+  vmlocation    = "UK South"
   nics        = [azurerm_network_interface.az-nic.id]
-  size        = var.size
-  adminusern  = var.adminusern
+  size        = "Standard_F2"
+  adminusern  = "admindemo1"
   adminpass   = data.azurerm_key_vault_secret.vm-secret.value
-  publisher   = var.publisher
-  offer       = var.offer
-  sku         = var.sku
-  vmversion   = var.vmversion
-  caching     = var.caching
-  strgaccount = var.strgaccount
-  tag         = var.tag
+ 
+publisher = "MicrosoftWindowsServer"
+offer     = "WindowsServer"
+sku       = "2016-Datacenter"
+vmversion = "latest"
 
-
+#OS Disk
+caching     = "ReadWrite"
+strgaccount = "Standard_LRS"
+vmtag = "demo"
 }
