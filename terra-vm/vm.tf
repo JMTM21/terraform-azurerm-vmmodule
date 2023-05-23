@@ -20,42 +20,21 @@ resource "azurerm_network_interface" "az-nic" {
 }
 
 module "vmmod" {
-  source                = "../modules/vm-module"
-  name                  = var.vmanem
-  rsgname               = azurerm_resource_group.az-rsg.name
-  location              = var.location
-  nics                  = [azurerm_network_interface.az-nic.id]
-  size                  = var.size
-  admin_username        = var.adminusern
-  adminpass             = data.azurerm_key_vault_secret.vm-secret.value
-  #specifies image 
-  source_image_reference {
-    publisher = var.publisher
-    offer     = var.offer
-    sku       = var.sku
-    version   = var.version
-
-  }
-
-  #config disk 
-  os_disk {
-    caching              = var.caching
-    storage_account_type = var.strgaccount
-
-  }
-
-  #config profile
-
-
-
-  tags = {
-    enviroment = var.tag
-  }
-
-
-
-
-
+  source      = "../modules/vm-module"
+  vmname      = var.vmanem
+  rsgname     = azurerm_resource_group.az-rsg.name
+  location    = var.location
+  nics        = [azurerm_network_interface.az-nic.id]
+  size        = var.size
+  adminusern  = var.adminusern
+  adminpass   = data.azurerm_key_vault_secret.vm-secret.value
+  publisher   = var.publisher
+  offer       = var.offer
+  sku         = var.sku
+  vmversion   = var.vmversion
+  caching     = var.caching
+  strgaccount = var.strgaccount
+  tag         = var.tag
 
 
 }
