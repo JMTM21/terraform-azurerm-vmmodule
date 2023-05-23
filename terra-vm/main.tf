@@ -109,6 +109,14 @@ data "azurerm_key_vault_secret" "vm-secret" {
 
 }
 
+data "azurerm_key_vault_secret" "container-secret" {
+
+  name         = "container-key"
+  key_vault_id = data.azurerm_key_vault.kv-demo.id
+
+}
+
+
 #creates nic
 
 resource "azurerm_network_interface" "az-nic" {
