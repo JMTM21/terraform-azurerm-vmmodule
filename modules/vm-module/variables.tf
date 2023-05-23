@@ -5,22 +5,25 @@ variable "location" {
 }
 
 variable "vmname" {
-    type = string
+  
+}
+
+variable "rsgname" {
   
 }
 
 variable "adminusern" {
-  type = string
+  
 
 }
 
 variable "adminpass" {
-  type = string
+  
 
 }
 
 variable "nics" {
-  type = string
+  
 
 }
 
@@ -30,7 +33,7 @@ variable "size" {
 }
 
 variable "tag" {
-  type = string
+ 
 
 }
 
@@ -51,7 +54,7 @@ variable "sku" {
 
 }
 
-variable "version" {
+variable "vmversion" {
   type = string
 
 }

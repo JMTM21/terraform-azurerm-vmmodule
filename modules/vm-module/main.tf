@@ -14,7 +14,7 @@ resource "azurerm_windows_virtual_machine" "az-winvm" {
     publisher = var.publisher
     offer     = var.offer
     sku       = var.sku
-    version   = var.version
+    version   = var.vmversion
 
   }
 
