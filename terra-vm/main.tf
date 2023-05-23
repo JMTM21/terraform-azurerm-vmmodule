@@ -143,7 +143,7 @@ module "vmmod" {
   size        = "Standard_F2"
   adminusern  = "admindemo1"
   adminpass   = data.azurerm_key_vault_secret.vm-secret.value
- 
+ #source image
 publisher = "MicrosoftWindowsServer"
 offer     = "WindowsServer"
 sku       = "2016-Datacenter"
