@@ -1,5 +1,5 @@
 
-#creates VM
+#module for creating VM
 resource "azurerm_windows_virtual_machine" "az-winvm" {
   name                  = var.vmname
   resource_group_name   = var.rsgname
