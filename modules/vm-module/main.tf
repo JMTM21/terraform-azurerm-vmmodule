@@ -1,23 +1,3 @@
-#creates nic
-
-resource "azurerm_network_interface" "az-nic" {
-
-  name                = "modnic-demo"
-  location            = azurerm_resource_group.az-rsg.location
-  resource_group_name = azurerm_resource_group.az-rsg.name
-
-  ip_configuration {
-    name                          = "ipconfig-demo"
-    subnet_id                     = azurerm_subnet.az-sub.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pubip.id
-
-  }
-  tags = {
-    enviroment = var.tag
-  }
-
-}
 
 #creates VM
 resource "azurerm_windows_virtual_machine" "az-winvm" {
@@ -52,8 +32,5 @@ resource "azurerm_windows_virtual_machine" "az-winvm" {
   tags = {
     enviroment = var.tag
   }
-
-
-
 
 }
