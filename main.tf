@@ -75,3 +75,18 @@ resource "azurerm_subnet" "az-sub" {
   virtual_network_name = azurerm_virtual_network.az-vnet.name
   address_prefixes     = ["10.0.2.0/24"]
 }
+
+resource "azurerm_public_ip" "pubip" {
+
+  name                = "azmvpublicip"
+  resource_group_name = azurerm_resource_group.az-rsg.name
+  location            = azurerm_resource_group.az-rsg.location
+  allocation_method   = "Static"
+
+  tags = {
+
+    enviroment = var.tag
+
+  }
+
+}
