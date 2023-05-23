@@ -1,11 +1,12 @@
 ##VM Config
-variable "location" {
+variable "vmlocation" {
   type    = string
   default = "UK South"
 }
 
+
 variable "vmname" {
-  
+
 }
 
 variable "rsgname" {
@@ -32,7 +33,7 @@ variable "size" {
 
 }
 
-variable "tag" {
+variable "vmtag" {
  
 
 }

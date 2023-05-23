@@ -1,9 +1,9 @@
 
 #creates VM
 resource "azurerm_windows_virtual_machine" "az-winvm" {
-  name                  = var.vmanem
+  name                  = var.vmname
   resource_group_name   = var.rsgname
-  location              = var.location
+  location              = var.vmlocation
   network_interface_ids = var.nics
   size                  = var.size
   admin_username        = var.adminusern
@@ -30,7 +30,7 @@ resource "azurerm_windows_virtual_machine" "az-winvm" {
 
 
   tags = {
-    enviroment = var.tag
+    enviroment = var.vmtag
   }
 
 }
