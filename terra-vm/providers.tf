@@ -7,7 +7,7 @@ terraform {
       storage_account_name = "jmtmstorage"
       container_name       = "tfstate"
       key                  = "terraform.tfstate"
-      access_key           = azurerm_key_vault_secret.container-secret.value
+      #access_key           = azurerm_key_vault_secret.container-secret.value
   }
   required_providers {
 
