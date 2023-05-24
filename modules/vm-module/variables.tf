@@ -70,3 +70,4 @@ variable "strgaccount" {
   type = string
 
 }
+
