@@ -2,7 +2,14 @@ terraform {
   #gets Terraform version - anything over 1.3.2
   required_version = ">=1.3.2"
 
-  backend "remote" {
+/*backend "azurerm" {
+      resource_group_name  = "kvrsg"
+      storage_account_name = "jmtmstorage"
+      container_name       = "tfstate"
+      key                  = "terraform.tfstate"
+  }*/
+
+    backend "remote" {
     hostname     = "app.terraform.io"
     organization = "JMTM21"
     workspaces {

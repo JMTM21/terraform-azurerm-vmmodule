@@ -8,5 +8,6 @@ output "kvoutput" {
 output "subnetput" {
   description = "outputs keyvault id"
   value       = "subnet id = ${azurerm_subnet.az-sub.id}"
+  sensitive   = true
 
 }
