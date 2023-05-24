@@ -4,3 +4,9 @@ output "kvoutput" {
   value       = "Key vault id = ${data.azurerm_key_vault.kv-demo.id}"
 
 }
+
+output "subnetput" {
+  description = "outputs keyvault id"
+  value       = "subnet id = ${azurerm_subnet.az-sub.id}"
+
+}

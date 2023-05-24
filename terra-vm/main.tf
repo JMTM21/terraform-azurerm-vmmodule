@@ -31,7 +31,7 @@ resource "azurerm_network_security_group" "az-nsg" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "3389"
+    destination_port_range     = "*"
     source_address_prefix      = "86.1.92.18"
     destination_address_prefix = "*"
   }
@@ -76,6 +76,11 @@ resource "azurerm_subnet" "az-sub" {
   resource_group_name  = azurerm_resource_group.az-rsg.name
   virtual_network_name = azurerm_virtual_network.az-vnet.name
   address_prefixes     = ["10.0.2.0/24"]
+}
+
+resource "azurerm_subnet_network_security_group_association" "az-sbnsg" {
+  subnet_id                 = azurerm_subnet.az-sub.id
+  network_security_group_id = azurerm_network_security_group.az-nsg.id
 }
 
 ##Creates Public IP for VM NIC
@@ -161,4 +166,8 @@ vmversion = "latest"
 caching     = "ReadWrite"
 strgaccount = "Standard_LRS"
 vmtag = "demo"
+
+
 }
+
+
