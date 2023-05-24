@@ -2,13 +2,14 @@ terraform {
   #gets Terraform version - anything over 1.3.2
   required_version = ">=1.3.2"
 
-  backend "azurerm" {
-      resource_group_name  = "kvrsg"
-      storage_account_name = "jmtmstorage"
-      container_name       = "tfstate"
-      key                  = "terraform.tfstate"
-      #access_key           = azurerm_key_vault_secret.container-secret.value
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "JMTM21"
+    workspaces {
+      name = "azure-new"
+    }
   }
+
   required_providers {
 
     #gets azure provider - anything over 3.57.0
@@ -17,7 +18,7 @@ terraform {
       version = ">=3.57.0"
     }
 
-    
+
     #gets random provider - anything over 3.5.1
     random = {
 

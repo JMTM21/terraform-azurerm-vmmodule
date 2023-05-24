@@ -148,24 +148,24 @@ resource "azurerm_network_interface" "az-nic" {
 ##Calls Module to create VM
 
 module "vmmod" {
-  source      = "../modules/vm-module"
-  vmname      = "winvm-demo"
-  rsgname     = azurerm_resource_group.az-rsg.name
-  vmlocation    = "UK South"
-  nics        = [azurerm_network_interface.az-nic.id]
-  size        = "Standard_F2"
-  adminusern  = "admindemo1"
-  adminpass   = data.azurerm_key_vault_secret.vm-secret.value
- #source image
-publisher = "MicrosoftWindowsServer"
-offer     = "WindowsServer"
-sku       = "2016-Datacenter"
-vmversion = "latest"
+  source     = "../modules/vm-module"
+  vmname     = "winvm-demo"
+  rsgname    = azurerm_resource_group.az-rsg.name
+  vmlocation = "UK South"
+  nics       = [azurerm_network_interface.az-nic.id]
+  size       = "Standard_F2"
+  adminusern = "admindemo1"
+  adminpass  = data.azurerm_key_vault_secret.vm-secret.value
+  #source image
+  publisher = "MicrosoftWindowsServer"
+  offer     = "WindowsServer"
+  sku       = "2016-Datacenter"
+  vmversion = "latest"
 
-#OS Disk
-caching     = "ReadWrite"
-strgaccount = "Standard_LRS"
-vmtag = "demo"
+  #OS Disk
+  caching     = "ReadWrite"
+  strgaccount = "Standard_LRS"
+  vmtag       = "demo"
 
 
 }
