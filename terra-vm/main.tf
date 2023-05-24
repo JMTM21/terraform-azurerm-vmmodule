@@ -148,7 +148,7 @@ resource "azurerm_network_interface" "az-nic" {
 ##Calls Module to create VM
 
 module "vmmod" {
-  source     = "https://github.com/JMTM21/terraformmodule/tree/main/modules/vm-module"
+  source     = "git::https://github.com/JMTM21/terraformmodule/tree/main/modules/vm-module"
   vmname     = "winvm-demo"
   rsgname    = azurerm_resource_group.az-rsg.name
   vmlocation = "UK South"
