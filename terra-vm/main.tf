@@ -35,7 +35,7 @@ resource "azurerm_network_security_group" "az-nsg" {
   resource_group_name = azurerm_resource_group.az-rsg.name
 
   #rules below Allowing rdp from 1 IP, Deny all else
-  security_rule {
+  /*security_rule {
     name                       = "Allowrdp"
     priority                   = 100
     direction                  = "Inbound"
@@ -45,7 +45,7 @@ resource "azurerm_network_security_group" "az-nsg" {
     destination_port_range     = "*"
     source_address_prefix      = "86.1.92.18"
     destination_address_prefix = "*"
-  }
+  }*/
 
   #denying all except my IP
   dynamic "security_rule" {
