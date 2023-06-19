@@ -6,7 +6,7 @@ location   = "UK South"
 size       = "Standard_F2"
 adminusern = "admindemo1"
 vmtag      = "module-demo"
-tag        = "module-demo"
+
 
 #source image values
 publisher = "MicrosoftWindowsServer"
@@ -17,3 +17,5 @@ vmversion = "latest"
 #OS Disk values
 caching     = "ReadWrite"
 strgaccount = "Standard_LRS"
+
+tag = demo
